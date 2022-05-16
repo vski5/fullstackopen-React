@@ -17,7 +17,7 @@ Notes 页面的工作流程
 -   浏览器执行 JavaScript 代码，代码向地址[https://studies.cs.helsinki.fi/exampleapp/data.json](https://studies.cs.helsinki.fi/exampleapp/data.json) 发出 HTTP GET 请求，请求返回了包含 note 的 JSON 数据。
     
 -   获取数据后，浏览器执行一个_event handler 事件处理程序_, 使用 DOM-API 将 Note 渲染到页面
-
+# SPA
 SPA 类型的网站不会像我们的示例应用那样从服务器上单独获取所有页面，而是只从服务器获取一个 HTML 页面，其内容由 JavaScript 在浏览器中执行操作。
 
 单页应用版本可以在 [https://studies.cs.helsinki.fi/exampleapp/spa](https://studies.cs.helsinki.fi/exampleapp/spa) 中找到
