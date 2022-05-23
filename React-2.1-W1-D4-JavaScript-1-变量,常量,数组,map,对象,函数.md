@@ -186,13 +186,62 @@ console.log(object1[fieldName])    // 35 is printed
 
 ```js
 object1.address = 'Helsinki' //从key到value。
-object1['secret number'] = 12341 //从value到key，要用中括号把value括起来。
+object1['secret number'] = 12341 //从key到value，要用中括号把key括起来，用点的话就认不出来了
 ```
 
 后面的那个属性的添加必须通过使用中括号来完成，因为在使用点符号的话，带空格的_secret number_并不是一个合法的属性名。
 
 当然，JavaScript 中的对象也可以包含方法。 但是，在这个课程中，我们并不需要定义带方法的对象，因此这里只是简单地提及它。
 
+
+
+
 # Functions
 
 【函数】
+
+## 箭头函数
+
+定义**箭头函数**的完整过程如下:
+sum为函数名，p1p2是参数。
+```js
+const sum = (p1, p2) => {
+  console.log(p1)
+  console.log(p2)
+  return p1 + p2
+}
+```
+
+这个函数可以被如下方式调用:
+
+```js
+const result = sum(1, 5)
+console.log(result)
+```
+
+如果只有一个参数，我们可以在定义中去掉括号,如果函数只包含一个表达式，则不需要写大括号。
+
+ES6之前用**关键词`function`** 来定义函数。
+
+## 关键词`function`
+### 方法一
+一种是在函数声明中给一个名字
+**函数声明**定义一个具有指定参数的函数。
+
+```js
+function product(a, b) {
+  return a * b
+}
+```
+
+
+### 方法二
+
+另一种定义函数的方法是使用函数表达式。 在这种情况下，没有必要为函数命名，定义可以放在代码的其它位置:
+
+```js
+const average = function(a, b) {
+  return (a + b) / 2
+}
+```
+
