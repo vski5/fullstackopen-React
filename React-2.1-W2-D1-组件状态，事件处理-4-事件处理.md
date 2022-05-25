@@ -52,3 +52,35 @@ const App = () => {
 
 export default App
 ```
+
+自己的复刻版本：
+```js
+import React, { useState } from 'react';
+
+
+const App = () => {
+  const [counter,setCounter]=useState(0)
+
+  const pluss =()=>{
+    setCounter(counter+1);
+    console.log('clicked',counter)
+  }
+   const subtracts =()=>{
+    setCounter(counter-1);
+    console.log('clicked',counter)
+  }
+  return (
+    <div>
+      <div>{counter}</div>
+      <button onClick={pluss}>
+      plus
+      </button>
+      <button onClick={subtracts}>
+      subtract
+      </button>
+    </div>
+  )
+}
+
+export default App
+```
