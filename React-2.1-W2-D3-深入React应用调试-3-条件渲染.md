@@ -55,7 +55,9 @@ const Button = ({ handleClick, text }) => (
 return (
     <div>
       {left}
-      <Button handleClick={handleLeftClick} text='left' />      <Button handleClick={handleRightClick} text='right' />      {right}
+      <Button handleClick={handleLeftClick} text='left' />      
+      <Button handleClick={handleRightClick} text='right' />      
+      {right}
       <History allClicks={allClicks} />
     </div>
   )
@@ -103,3 +105,5 @@ const App = () => {
   )
 }
 ```
+
+
