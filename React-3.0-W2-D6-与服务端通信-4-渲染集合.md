@@ -64,3 +64,48 @@ ReactDOM.render(
 ```
 
 每个便笺都包含其文本内容、时间戳以及一个布尔值，用于标记该便笺是否重要，便笺还包含一个惟一的_id_。
+
+`<li>`标签用于做标记，例如把`<li>`放到`<ol>`里面会自然生成`1.`、`2.` 这种前置标签。
+
+引用一个硬编码的索引号来访问数组中的对象来渲染单个便笺:
+
+```js
+<li>{notes[1].content}</li>
+```
+
+数组下标这种方式当然是无法通用的。
+ 
+可以使用 map函数从数组对象生成 React-元素，使解决方案变得更通用。
+
+```js
+notes.map(note => <li>{note.content}</li>)
+```
+
+其结果是一个 _li_ 元素的数组。
+
+```js
+[
+  <li>HTML is easy</li>,
+  <li>Browser can execute only JavaScript</li>,
+  <li>GET and POST are the most important methods of HTTP protocol</li>,
+]
+```
+
+然后可以把这些li元素放在_ul_ 标签中:
+```js
+ <ul>        
+ {notes.map(note => <li>{note.content}</li>)}      
+ </ul>
+```
+优化一下格式：
+```js
+	<ul>
+        {notes.map(note => 
+          <li>
+            {note.content}
+          </li>
+        )}
+	</ul>
+```
+
+由于生成_li_ 标签的代码是 JavaScript，所以就要像所有其他 JavaScript 代码一样，在 JSX 模板中使用花括号来包装它。
