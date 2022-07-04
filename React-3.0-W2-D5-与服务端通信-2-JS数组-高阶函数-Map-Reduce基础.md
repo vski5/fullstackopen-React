@@ -79,12 +79,14 @@ var animals =[
     {name:'5',species:'c'}
     ]
 
-var names = animals.map(   function(ani){
-    return ani.name
+var names = animals.map(   
+	function(ani){
+	    return ani.name
 })
 
-var names2 = animals.map(   function(ani2){
-    return ani2.name + 'is' + ani2.species
+var names2 = animals.map(   
+	function(ani2){
+	    return ani2.name + 'is' + ani2.species
 })
 
 console.log(names)

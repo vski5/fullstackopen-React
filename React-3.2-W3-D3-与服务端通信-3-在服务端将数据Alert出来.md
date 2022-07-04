@@ -46,3 +46,48 @@ addNote = event => {
 后台服务器返回的新笔记被添加到我们应用的状态中的笔记列表中，习惯的方法是使用setNotes函数，然后重设笔记创建表单。
 
 一个需要记住的重要细节是，concat方法并不改变组件的原始状态，而是创建一个新的列表副本。
+filter是筛出符合条件的值，建立新的副本。
+
+运行步骤：
+axios.post获得服务器json，用useState将其加入原有的notes中。
+
+#  Changing the Importance of Notes
+
+让我们为每个笔记添加一个按钮，可以用来切换其重要性。
+
+我们对 Note 组件做如下修改。
+```js
+const Note = ({ note, toggleImportance }) => {
+  const label = note.important
+    ? 'make not important' : 'make important'
+
+  return (
+    <li>
+      {note.content}
+      <button onClick={toggleImportance}>{label}</button>
+    </li>
+  )
+}
+```
+解释：
+添加一个按钮，并将其事件处理程序指定为组件prop中传递的`toggleImportance`函数。
+App组件定义：初始版本的` toggleImportanceOf `事件处理函数，并将其传递给每个 Note 组件。
+App组件定义：`toggleImportance`事件处理函数，用于获得被` toggleImportanceOf `事件处理函数操作过的 字符串。
+```js
+  const toggleImportanceOf = (id) => {    
+  console.log('importance of ' + id + ' needs to be toggled')  
+  }
+  
+  ..........
+
+  toggleImportance={() => toggleImportanceOf(note.id)}
+```
+
+ES6中添加的**模板字符串**语法可以用来以更漂亮的方式编写类似的字符串。
+```js
+console.log(`importance of ${id} needs to be toggled`)
+```
+我们现在可以使用 "美元括号 "语法在字符串中添加将计算JavaScript表达式的部分，例如一个变量的值。
+注意，模板字符串中使用的引号（键盘左上角的）与普通JavaScript字符串中使用的引号不同。
+
+存储在json-server后台的单个笔记可以通过对笔记的唯一URL进行HTTP请求，以两种不同方式进行修改。我们可以用HTTP PUT请求来替换整个笔记，或者用HTTP PATCH请求只改变笔记的某些属性。
